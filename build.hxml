@@ -1,0 +1,11 @@
+--class-path src/haxe
+--jvm bin/Main.jar
+--dce full
+
+com.beeinventor.keycloak.WebhookEventListenerProvider
+com.beeinventor.keycloak.WebhookEventListenerProviderFactory
+
+--library tink_adhoc
+--java-lib-extern extern/javax-crypto.jar
+
+maven.hxml
