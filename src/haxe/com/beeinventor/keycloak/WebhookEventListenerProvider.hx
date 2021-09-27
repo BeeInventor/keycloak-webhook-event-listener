@@ -67,7 +67,7 @@ class WebhookEventListenerProvider implements EventListenerProvider {
 		});
 	}
 	
-	function invokeWebhook(config:WebhookConfig, payload:Dynamic) {
+	function invokeWebhook(config:WebhookConfig, payload:Any) {
 		final url = new URL(config.url);
 		final cnx:HttpURLConnection = cast url.openConnection();
 		final data = Bytes.ofString(Json.stringify(payload));
