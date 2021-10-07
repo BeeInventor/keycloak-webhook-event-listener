@@ -9,7 +9,7 @@
 	<groupId>com.beeinventor</groupId>
 	<artifactId>keycloak-webhook-event-listener</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<scm>
 		<url>https://github.com/BeeInventor/keycloak-webhook-event-listener</url>
 	</scm>
