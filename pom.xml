@@ -15,9 +15,14 @@
 	</scm>
 
 	<pluginRepositories>
-		<pluginRepository>
-			<id>github</id>
+		<!-- Enabled github packages when issue resolved: https://github.community/t/download-from-github-package-registry-without-authentication/14407 -->
+		<!-- <pluginRepository>
+			<id>github-packages</id>
 			<url>https://maven.pkg.github.com/kevinresol/*</url>
+		</pluginRepository> -->
+		<pluginRepository>
+			<id>github-branch</id>
+			<url>https://raw.githubusercontent.com/kevinresol/haxe-maven-plugin/mvn-repo/</url>
 		</pluginRepository>
 	</pluginRepositories>
 	
