@@ -25,14 +25,6 @@
 			<url>https://raw.githubusercontent.com/kevinresol/haxe-maven-plugin/mvn-repo/</url>
 		</pluginRepository>
 	</pluginRepositories>
-	
-	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>GitHub BeeInventor Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/BeeInventor/keycloak-webhook-event-listener</url>
-		</repository>
-	</distributionManagement>	
 
 	<dependencies>
 		<dependency>
@@ -95,6 +87,19 @@
 						<goals>
 							<goal>setup</goal>
 							<goal>build</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.2.4</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
 						</goals>
 					</execution>
 				</executions>
