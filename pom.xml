@@ -25,7 +25,7 @@
 		<repository>
 			<id>github</id>
 			<name>GitHub BeeInventor Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/BeeInventor/keycloak-events-webhook</url>
+			<url>https://maven.pkg.github.com/BeeInventor/keycloak-webhook-event-listener</url>
 		</repository>
 	</distributionManagement>	
 
