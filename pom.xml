@@ -4,37 +4,30 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<group.id>com.beeinventor</group.id>
-		<artifact.id>keycloak-webhook-event-listener</artifact.id>
-		<github.global.server>github</github.global.server>
 	</properties>
 
 	<groupId>com.beeinventor</groupId>
 	<artifactId>keycloak-webhook-event-listener</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<scm>
 		<url>https://github.com/BeeInventor/keycloak-webhook-event-listener</url>
 	</scm>
 
-	<repositories>
-		<repository>
-			<id>haxe-maven-plugin-mvn-repo</id>
-			<url>https://raw.githubusercontent.com/kevinresol/haxe-maven-plugin/mvn-repo/</url>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
-	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/kevinresol/*</url>
+		</pluginRepository>
+	</pluginRepositories>
 	
 	<distributionManagement>
 		<repository>
-		  <id>internal.repo</id>
-		  <name>Temporary Staging Repository</name>
-		  <url>file://${project.build.directory}/mvn-repo</url>
+			<id>github</id>
+			<name>GitHub BeeInventor Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/BeeInventor/keycloak-events-webhook</url>
 		</repository>
-	  </distributionManagement>	
+	</distributionManagement>	
 
 	<dependencies>
 		<dependency>
@@ -98,52 +91,6 @@
 							<goal>setup</goal>
 							<goal>build</goal>
 						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>3.3.0</version>
-				<configuration>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<archive>
-						<manifest>
-							<mainClass>${haxe.mainClass}</mainClass>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-deploy-plugin</artifactId>
-				<version>2.8.2</version>
-				<configuration>
-					<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.github.github</groupId>
-				<artifactId>site-maven-plugin</artifactId>
-				<version>0.12</version>
-				<configuration>
-					<message>Maven artifacts for ${project.version}</message>
-					<branch>refs/heads/mvn-repo</branch>
-					<noJekyll>true</noJekyll>
-					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
-					<includes>
-						<include>**/*</include>
-					</includes>
-					<merge>true</merge>
-					<repositoryOwner>BeeInventor</repositoryOwner>
-					<repositoryName>keycloak-webhook-event-listener</repositoryName>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>site</goal>
-						</goals>
-						<phase>deploy</phase>
 					</execution>
 				</executions>
 			</plugin>
