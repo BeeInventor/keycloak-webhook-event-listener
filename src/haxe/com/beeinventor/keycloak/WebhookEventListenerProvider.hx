@@ -1,6 +1,5 @@
 package com.beeinventor.keycloak;
 
-import haxe.io.BytesBuffer;
 import haxe.io.Bytes;
 import haxe.Json;
 import java.net.HttpURLConnection;
@@ -53,7 +52,11 @@ class WebhookEventListenerProvider implements EventListenerProvider {
 			clientId: event.getClientId(),
 			details: {
 				final obj = new haxe.DynamicAccess<String>();
-				for(entry in event.getDetails().entrySet()) obj[entry.getKey()] = entry.getValue();
+				switch event.getDetails() {
+					case null:
+					case details:
+						for(entry in details.entrySet()) obj[entry.getKey()] = entry.getValue();
+				}
 				obj;
 			},
 			error: event.getError(),
